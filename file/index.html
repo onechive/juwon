@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宙園</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+    <div class="layout-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="hanja">宙園</span>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html" class="active-text">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="works.html">WORKS</a></li>
+                    <li><a href="sns.html">SNS</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section class="gallery">
+                <div class="gallery-column">
+                    <!-- Block 1 -->
+                    <div class="gallery-row">
+                        <img src="../img/home-1.jpg" alt="Home 1" class="img-full">
+                    </div>
+                    <!-- Block 2 -->
+                    <div class="gallery-row split-2">
+                        <img src="../img/home-2.jpg" alt="Home 2">
+                        <img src="../img/home-3.jpg" alt="Home 3">
+                    </div>
+                    <!-- Block 3 -->
+                    <div class="gallery-row">
+                        <img src="../img/home-4.jpg" alt="Home 4" class="img-full">
+                    </div>
+                    <!-- Block 4 -->
+                    <div class="gallery-row split-complex">
+                        <img src="../img/home-6.jpg" alt="Home 6" class="img-tall">
+                        <div class="stacked-images">
+                            <img src="../img/home-5.jpg" alt="Home 5" class="img-top">
+                            <img src="../img/home-7.jpg" alt="Home 7" class="img-bottom">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="transition.js"></script>
+    <script src="cursor.js"></script>
+</body>
+</html>

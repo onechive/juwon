@@ -1,0 +1,453 @@
+:root {
+    --bg-color: #FFFFFF;
+    --text-color: #111111;
+    --menu-color: #B0B0B0;
+    /* 약간 밝은 회색 */
+    --hover-bg: #BDF5AC;
+    /* 네모 밑글 효과 색상 */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Pretendard', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    /* 화면 드래그/스크롤 방지 */
+}
+
+.layout-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    /* 조금 더 넓게 배치 */
+    margin: 0 auto;
+    padding: 60px 40px;
+    /* 좌우 패딩을 줄여 더 바깥쪽으로 배치 */
+    min-height: 100vh;
+}
+
+/* Sidebar (Left) */
+.sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.logo {
+    margin-bottom: 50px;
+    /* 로고와 메뉴 사이 간격 줄임 */
+}
+
+.hanja {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    /* 텍스트 크기 키움 */
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+nav .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* 메뉴 항목 간 간격 줄임 */
+}
+
+nav .menu li a {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: var(--menu-color);
+    font-size: 14px;
+    /* 텍스트 크기 키움 */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 4px 6px;
+    margin-left: -6px;
+    position: relative;
+    transition: color 0.3s ease;
+    z-index: 1;
+    display: inline-block;
+}
+
+nav .menu li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: var(--hover-bg);
+    z-index: -1;
+    transition: height 0.2s ease-in-out;
+}
+
+nav .menu li a:hover {
+    color: var(--text-color);
+}
+
+nav .menu li a:hover::before {
+    height: 100%;
+}
+
+/* Main Content (Right) */
+.content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    /* 오른쪽 정렬 */
+    padding-top: 50px;
+    /* 조금 올림 */
+    padding-right: 0;
+    /* 더 오른쪽으로 */
+}
+
+/* Gallery Column Layout */
+.gallery-column {
+    width: 270px;
+    /* 모든 이미지 배치의 기준 폭 */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gallery-row {
+    display: flex;
+    gap: 10px;
+}
+
+.gallery-row img {
+    display: block;
+    object-fit: cover;
+}
+
+.img-full {
+    width: 270px;
+    height: 125px;
+}
+
+.split-2 img {
+    width: 130px;
+    height: 125px;
+}
+
+.split-complex {
+    display: flex;
+    gap: 10px;
+}
+
+.img-tall {
+    width: 102px;
+    height: 270px;
+}
+
+.stacked-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.img-top {
+    width: 158px;
+    height: 66px;
+}
+
+.img-bottom {
+    width: 158px;
+    height: 194px;
+}
+
+@media (max-width: 768px) {
+    .layout-container {
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .logo {
+        margin-bottom: 40px;
+    }
+
+    .content {
+        justify-content: center;
+        padding-top: 0;
+        padding-right: 0;
+    }
+}
+
+/* ABOUT PAGE STYLES */
+.about-content {
+    align-items: flex-end;
+    /* 텍스트 컨테이너를 아래로 */
+    padding-bottom: 150px;
+    /* 너무 밑에 있어서 텍스트를 위로 좀 더 올림 */
+}
+
+.about-text-container {
+    max-width: 500px;
+}
+
+.about-text {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--text-color);
+    letter-spacing: 0.2px;
+    margin: 0;
+}
+
+/* Active menu item styling for text only */
+nav .menu li a.active-text {
+    color: var(--text-color);
+    /* 현재 페이지 표시를 위해 색상 진하게 */
+}
+
+/* Gaps and indents to mimic the image spacing */
+.gap-small {
+    display: inline-block;
+    width: 10px;
+}
+
+.gap-medium {
+    display: inline-block;
+    width: 25px;
+}
+
+.gap-large {
+    display: inline-block;
+    width: 45px;
+}
+
+.indent-1 {
+    display: inline-block;
+    width: 30px;
+}
+
+.indent-3 {
+    display: inline-block;
+    width: 120px;
+}
+
+/* SNS PAGE STYLES */
+.sns-content {
+    align-items: center;
+    justify-content: flex-end;
+    /* 오른쪽으로 더 많이 밀착 */
+    padding-top: 0;
+    padding-right: 0;
+    /* 우측 여백 완전히 제거 */
+}
+
+.sns-gallery {
+    position: relative;
+    width: 800px;
+    height: 700px;
+    margin-top: 100px;
+    margin-right: -100px;
+    /* 더 많이 오른쪽으로 이동 */
+}
+
+.sns-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--menu-color);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    transition: color 0.5s ease, z-index 0s;
+}
+
+.sns-item:hover {
+    color: var(--text-color);
+    /* 호버 시 텍스트 검정색으로 */
+    z-index: 10 !important;
+}
+
+.sns-item img {
+    width: 340px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    /* 그림자 제거 */
+    filter: grayscale(100%);
+    /* 흑백 처리 */
+    transition: filter 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* 부드러운 전환 효과 */
+}
+
+.sns-item:hover img {
+    filter: grayscale(0%);
+    /* 색상 나타남 */
+    transform: scale(1.04);
+    /* 부드럽게 앞으로 나오는 효과 */
+}
+
+.sns-label {
+    letter-spacing: 1px;
+}
+
+.sns-item-1 {
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.sns-item-2 {
+    top: 180px;
+    left: 200px;
+    z-index: 2;
+}
+
+.sns-item-3 {
+    top: 360px;
+    left: 420px;
+    z-index: 3;
+}
+
+/* WORKS PAGE STYLES */
+.works-content {
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-top: 50px;
+    padding-right: 20px;
+    height: 100vh;
+    overflow-y: auto; /* 워크 페이지는 세로 스크롤 허용 */
+    padding-bottom: 50px;
+}
+
+/* 툴바 숨기기 (원할 경우 스크롤바 디자인 변경 가능) */
+.works-content::-webkit-scrollbar {
+    display: none;
+}
+
+.works-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%; /* 전체 공간 사용 */
+    max-width: 1000px; /* 더 넓게 설정하여 왼쪽으로 확장 */
+}
+
+.filter-menu {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-right: 10px;
+    position: sticky;
+    top: -50px; /* .works-content 의 패딩 때문에 상단 여백 보정 */
+    padding-top: 50px;
+    padding-bottom: 15px;
+    background-color: var(--bg-color);
+    z-index: 100;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.filter-menu a {
+    text-decoration: none;
+    color: var(--menu-color);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    transition: color 0.3s ease;
+}
+
+.filter-menu a:hover,
+.filter-menu a.active-filter {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.works-grid {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.grid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.work-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-box {
+    background-color: #D9D9D9;
+    width: 100%;
+    border-radius: 2px;
+}
+
+/* 박스 비율 지정 (유동적 비율) */
+.box-tall { aspect-ratio: 3 / 4; }
+.box-square { aspect-ratio: 1 / 1; }
+.box-wide { aspect-ratio: 16 / 9; }
+.box-tall-2 { aspect-ratio: 2 / 3.2; }
+.box-tall-3 { aspect-ratio: 4 / 5; }
+
+.work-label {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 9px;
+    color: var(--text-color);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* 우측 하단 동그라미 */
+.scroll-indicator {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    width: 15px;
+    height: 15px;
+    background-color: #BDF5AC; /* 색상 변경 */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.scroll-indicator:hover {
+    transform: scale(1.2);
+}
+
+/* 마우스 물결(Ripple) 이펙트 */
+.mouse-ripple {
+    position: fixed;
+    border: 1.5px solid var(--text-color); /* 물결의 테두리 색상 (검은색) */
+    border-radius: 50%;
+    transform: translate(-50%, -50%); /* 마우스 위치 중앙 정렬 */
+    pointer-events: none; /* 클릭 이벤트 방해하지 않음 */
+    z-index: 9999; /* 항상 최상단에 위치 */
+    animation: rippleAnim 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes rippleAnim {
+    0% {
+        width: 10px; /* 시작 크기 확대 */
+        height: 10px;
+        opacity: 0.8;
+    }
+    100% {
+        width: 100px; /* 커지는 최대 크기 대폭 확대 */
+        height: 100px;
+        opacity: 0; /* 서서히 사라짐 */
+    }
+}
